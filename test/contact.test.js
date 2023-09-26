@@ -1,10 +1,10 @@
 import supertest from "supertest";
 import {
-  createManyTestContact,
+  createManyTestContacts,
   createTestContact,
   createTestUser,
   getTestContact,
-  removeAllTestContact,
+  removeAllTestContacts,
   removeTestUser,
 } from "./test-util";
 import { web } from "../src/application/web";
@@ -16,7 +16,7 @@ describe("POST /api/contacts", () => {
   });
 
   afterEach(async () => {
-    await removeAllTestContact();
+    await removeAllTestContacts();
     await removeTestUser();
   });
 
@@ -62,7 +62,7 @@ describe("GET /api/contacts/:contactId", () => {
   });
 
   afterEach(async () => {
-    await removeAllTestContact();
+    await removeAllTestContacts();
     await removeTestUser();
   });
   it("should can get contact", async () => {
@@ -97,7 +97,7 @@ describe("PUT /api/contacts/:contactId", () => {
   });
 
   afterEach(async () => {
-    await removeAllTestContact();
+    await removeAllTestContacts();
     await removeTestUser();
   });
 
@@ -146,7 +146,7 @@ describe("DELETE /api/contacts/:contactId", () => {
   });
 
   afterEach(async () => {
-    await removeAllTestContact();
+    await removeAllTestContacts();
     await removeTestUser();
   });
   it("should can delete contact", async () => {
@@ -176,11 +176,11 @@ describe("DELETE /api/contacts/:contactId", () => {
 describe("GET /api/contacts", () => {
   beforeEach(async () => {
     await createTestUser();
-    await createManyTestContact();
+    await createManyTestContacts();
   });
 
   afterEach(async () => {
-    await removeAllTestContact();
+    await removeAllTestContacts();
     await removeTestUser();
   });
 
